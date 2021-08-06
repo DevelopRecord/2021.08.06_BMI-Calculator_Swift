@@ -27,7 +27,7 @@ class BMIController: UIViewController {
     
     lazy var heightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "100"
+        label.text = "100CM"
         return label
     }()
     
@@ -49,7 +49,7 @@ class BMIController: UIViewController {
     
     lazy var weightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "75"
+        label.text = "75KG"
         return label
     }()
     
@@ -78,16 +78,19 @@ class BMIController: UIViewController {
     }()
     
     // MARK: Selectors
-    @objc func heightSliderValueDidChanged() {
+    @objc func heightSliderValueDidChanged(_ sender: UISlider) {
         print("height slider value did changed!!")
         
-        let current = heightValueLabel
-        
-        heightValueLabel.text = "\(current)"
+        let current = sender.value
+        heightValueLabel.text = "\(String(format: "%.1f", current))M"
     }
     
-    @objc func weightSlideValueDidChanged() {
+    @objc func weightSlideValueDidChanged(_ sender: UISlider) {
         print("weight slider value changed!!!")
+        
+        let current = sender.value
+        
+        weightValueLabel.text = "\(String(format: "%.1f", current))M"
     }
     
     @objc func calculateButtonTapped(){
@@ -118,7 +121,7 @@ class BMIController: UIViewController {
         view.addSubview(heightValueLabel)
         heightValueLabel.translatesAutoresizingMaskIntoConstraints = false
         heightValueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 330).isActive = true
-        heightValueLabel.leadingAnchor.constraint(equalTo: heightLabel.leadingAnchor, constant: 355).isActive = true
+        heightValueLabel.leadingAnchor.constraint(equalTo: heightLabel.leadingAnchor, constant: 320).isActive = true
         
         view.addSubview(heightSliderBar)
         heightSliderBar.translatesAutoresizingMaskIntoConstraints = false
@@ -135,7 +138,7 @@ class BMIController: UIViewController {
         view.addSubview(weightValueLabel)
         weightValueLabel.translatesAutoresizingMaskIntoConstraints = false
         weightValueLabel.topAnchor.constraint(equalTo: heightSliderBar.bottomAnchor, constant: 20).isActive = true
-        weightValueLabel.leadingAnchor.constraint(equalTo: weightLabel.leadingAnchor, constant: 355).isActive = true
+        weightValueLabel.leadingAnchor.constraint(equalTo: weightLabel.leadingAnchor, constant: 330).isActive = true
         
         view.addSubview(weightSliderBar)
         weightSliderBar.translatesAutoresizingMaskIntoConstraints = false
