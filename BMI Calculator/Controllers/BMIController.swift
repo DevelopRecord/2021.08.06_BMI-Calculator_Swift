@@ -27,16 +27,17 @@ class BMIController: UIViewController {
     
     lazy var heightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "100CM"
+        label.text = "1.00M"
         return label
     }()
     
     lazy var heightSliderBar: UISlider = {
         let slide = UISlider()
         slide.minimumValue = 0
-        slide.maximumValue = 200
+        slide.maximumValue = 2
         slide.tintColor = UIColor.systemBlue
-        slide.setValue(100, animated: true)
+        
+        slide.setValue(1, animated: true)
         slide.addTarget(self, action: #selector(heightSliderValueDidChanged), for: UIControl.Event.touchUpInside)
         return slide
     }()
@@ -49,7 +50,7 @@ class BMIController: UIViewController {
     
     lazy var weightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "75KG"
+        label.text = "75.00KG"
         return label
     }()
     
@@ -82,7 +83,7 @@ class BMIController: UIViewController {
         print("height slider value did changed!!")
         
         let current = sender.value
-        heightValueLabel.text = "\(String(format: "%.1f", current))M"
+        heightValueLabel.text = "\(String(format: "%.2f", current))M"
     }
     
     @objc func weightSlideValueDidChanged(_ sender: UISlider) {
@@ -90,11 +91,14 @@ class BMIController: UIViewController {
         
         let current = sender.value
         
-        weightValueLabel.text = "\(String(format: "%.1f", current))M"
+        weightValueLabel.text = "\(String(format: "%.2f", current))KG"
     }
     
-    @objc func calculateButtonTapped(){
+    @objc func calculateButtonTapped() {
         print("calculate button tapped!")
+        let resultVC = ResultController()
+        self.present(resultVC, animated: true, completion: nil)
+        
     }
     
     // MARK: Init
@@ -121,7 +125,7 @@ class BMIController: UIViewController {
         view.addSubview(heightValueLabel)
         heightValueLabel.translatesAutoresizingMaskIntoConstraints = false
         heightValueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 330).isActive = true
-        heightValueLabel.leadingAnchor.constraint(equalTo: heightLabel.leadingAnchor, constant: 320).isActive = true
+        heightValueLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
         
         view.addSubview(heightSliderBar)
         heightSliderBar.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +142,7 @@ class BMIController: UIViewController {
         view.addSubview(weightValueLabel)
         weightValueLabel.translatesAutoresizingMaskIntoConstraints = false
         weightValueLabel.topAnchor.constraint(equalTo: heightSliderBar.bottomAnchor, constant: 20).isActive = true
-        weightValueLabel.leadingAnchor.constraint(equalTo: weightLabel.leadingAnchor, constant: 330).isActive = true
+        weightValueLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         
         view.addSubview(weightSliderBar)
         weightSliderBar.translatesAutoresizingMaskIntoConstraints = false

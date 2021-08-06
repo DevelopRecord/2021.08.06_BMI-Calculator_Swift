@@ -13,6 +13,7 @@
 		FB7D99D326BD07E400EAF330 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7D99D226BD07E400EAF330 /* Assets.xcassets */; };
 		FB7D99D626BD07E400EAF330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB7D99D426BD07E400EAF330 /* LaunchScreen.storyboard */; };
 		FB7D99DF26BD085300EAF330 /* BMIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D99DE26BD085300EAF330 /* BMIController.swift */; };
+		FB7D99E126BD297400EAF330 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D99E026BD297400EAF330 /* ResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FB7D99D526BD07E400EAF330 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB7D99D726BD07E400EAF330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB7D99DE26BD085300EAF330 /* BMIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIController.swift; sourceTree = "<group>"; };
+		FB7D99E026BD297400EAF330 /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7D99DE26BD085300EAF330 /* BMIController.swift */,
+				FB7D99E026BD297400EAF330 /* ResultController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				FB7D99D126BD07E300EAF330 /* BMI_Calculator.xcdatamodeld in Sources */,
 				FB7D99C726BD07E300EAF330 /* AppDelegate.swift in Sources */,
+				FB7D99E126BD297400EAF330 /* ResultController.swift in Sources */,
 				FB7D99DF26BD085300EAF330 /* BMIController.swift in Sources */,
 				FB7D99C926BD07E300EAF330 /* SceneDelegate.swift in Sources */,
 			);
