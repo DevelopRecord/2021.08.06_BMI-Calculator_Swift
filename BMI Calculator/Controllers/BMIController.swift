@@ -27,7 +27,7 @@ class BMIController: UIViewController {
     
     lazy var heightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "1.00M"
+        label.text = "1.0M"
         return label
     }()
     
@@ -49,7 +49,7 @@ class BMIController: UIViewController {
     
     lazy var weightValueLabel: UILabel = {
         let label = UILabel()
-        label.text = "75.00KG"
+        label.text = "75KG"
         return label
     }()
     
@@ -79,24 +79,35 @@ class BMIController: UIViewController {
     
     // MARK: Selectors
     @objc func heightSliderValueDidChanged(_ sender: UISlider) {
-        print("height slider value did changed!!")
         
         let current = sender.value
         heightValueLabel.text = "\(String(format: "%.2f", current))M"
     }
     
     @objc func weightSlideValueDidChanged(_ sender: UISlider) {
-        print("weight slider value changed!!!")
-        
+
         let current = sender.value
-        weightValueLabel.text = "\(String(format: "%.2f", current))KG"
+        weightValueLabel.text = "\(String(format: "%.0f", current))KG"
     }
     
     @objc func calculateButtonTapped() {
-        print("calculate button tapped!")
         let resultVC = ResultController()
         self.present(resultVC, animated: true, completion: nil)
-//        resultVC.resultLabel.text = "\(Float(heightValueLabel) * Float(heightValueLabel)))"
+        let score = weightSliderBar.value / (heightSliderBar.value * heightSliderBar.value)
+        resultVC.score.text = "\(String(format: "%.2f", score))"
+        
+        
+        if score >= 25 {
+            resultVC.message.text = "You're obese! Go to the gym right now!!"
+        } else if score >= 23 {
+            resultVC.message.text = "You're overweight. Be careful!"
+        } else if score >= 18.5 {
+            resultVC.message.text = "You're normal. It's very good!"
+        } else {
+            resultVC.message.numberOfLines = 2
+            resultVC.message.textAlignment = .center
+            resultVC.message.text = "You're underweight.\nMeal and exercise at the same time!"
+        }
     }
     
     // MARK: Init

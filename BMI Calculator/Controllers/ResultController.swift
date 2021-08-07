@@ -14,14 +14,21 @@ class ResultController: UIViewController {
     lazy var resultLabel: UILabel = {
         let label = UILabel()
         label.text = "YOUR BMI RESULT"
-        label.font = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.heavy)
+        label.font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.heavy)
         label.textColor = .systemBlue
         return label
     }()
     
     lazy var score: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 42, weight: UIFont.Weight.heavy)
+        label.font = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.heavy)
+        label.textColor = .systemBlue
+        return label
+    }()
+    
+    lazy var message: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.light)
         label.textColor = .systemBlue
         return label
     }()
@@ -56,17 +63,21 @@ class ResultController: UIViewController {
         
         view.addSubview(resultLabel)
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        resultLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         view.addSubview(score)
         score.translatesAutoresizingMaskIntoConstraints = false
         score.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20).isActive = true
         score.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        view.addSubview(message)
+        message.translatesAutoresizingMaskIntoConstraints = false
+        message.topAnchor.constraint(equalTo: score.bottomAnchor, constant: 20).isActive = true
+        message.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         view.addSubview(reCalculateButton)
         reCalculateButton.translatesAutoresizingMaskIntoConstraints = false
-        reCalculateButton.topAnchor.constraint(equalTo: score.bottomAnchor, constant: 40).isActive = true
         reCalculateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         reCalculateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         reCalculateButton.widthAnchor.constraint(equalToConstant: view.frame.width - 40).isActive = true
