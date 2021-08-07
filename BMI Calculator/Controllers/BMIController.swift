@@ -106,7 +106,7 @@ class BMIController: UIViewController {
         } else {
             resultVC.message.numberOfLines = 2
             resultVC.message.textAlignment = .center
-            resultVC.message.text = "You're underweight.\nMeal and exercise at the same time!"
+            resultVC.message.text = "You're underweight.\nMeal and exercise at the same time!!"
         }
     }
     
