@@ -4,6 +4,7 @@
 //
 //  Created by LeeJaeHyeok on 2021/08/06.
 //
+//Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 
 import UIKit
 
@@ -95,7 +96,6 @@ class BMIController: UIViewController {
         self.present(resultVC, animated: true, completion: nil)
         let score = weightSliderBar.value / (heightSliderBar.value * heightSliderBar.value)
         resultVC.score.text = "\(String(format: "%.2f", score))"
-        
         
         if score >= 25 {
             resultVC.message.text = "You're obese! Go to the gym right now!!"
