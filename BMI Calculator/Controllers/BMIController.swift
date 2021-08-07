@@ -36,7 +36,6 @@ class BMIController: UIViewController {
         slide.minimumValue = 0
         slide.maximumValue = 2
         slide.tintColor = UIColor.systemBlue
-        
         slide.setValue(1, animated: true)
         slide.addTarget(self, action: #selector(heightSliderValueDidChanged), for: UIControl.Event.touchUpInside)
         return slide
@@ -90,7 +89,6 @@ class BMIController: UIViewController {
         print("weight slider value changed!!!")
         
         let current = sender.value
-        
         weightValueLabel.text = "\(String(format: "%.2f", current))KG"
     }
     
@@ -98,7 +96,7 @@ class BMIController: UIViewController {
         print("calculate button tapped!")
         let resultVC = ResultController()
         self.present(resultVC, animated: true, completion: nil)
-        
+//        resultVC.resultLabel.text = "\(Float(heightValueLabel) * Float(heightValueLabel)))"
     }
     
     // MARK: Init
