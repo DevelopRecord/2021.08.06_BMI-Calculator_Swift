@@ -94,19 +94,22 @@ class BMIController: UIViewController {
     @objc func calculateButtonTapped() {
         let resultVC = ResultController()
         self.present(resultVC, animated: true, completion: nil)
-        let score = weightSliderBar.value / (heightSliderBar.value * heightSliderBar.value)
+        let score = weightSliderBar.value / (pow(heightSliderBar.value, 2))
         resultVC.score.text = "\(String(format: "%.2f", score))"
         
         if score >= 25 {
             resultVC.message.text = "You're obese! Go to the gym right now!!"
+            resultVC.score.textColor = .systemRed
         } else if score >= 23 {
             resultVC.message.text = "You're overweight. Be careful!"
+            resultVC.score.textColor = .systemOrange
         } else if score >= 18.5 {
             resultVC.message.text = "You're normal. It's very good!"
         } else {
             resultVC.message.numberOfLines = 2
             resultVC.message.textAlignment = .center
             resultVC.message.text = "You're underweight.\nMeal and exercise at the same time!!"
+            resultVC.score.textColor = .systemRed
         }
     }
     
@@ -128,12 +131,12 @@ class BMIController: UIViewController {
         
         view.addSubview(heightLabel)
         heightLabel.translatesAutoresizingMaskIntoConstraints = false
-        heightLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 330).isActive = true
+        heightLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 230).isActive = true
         heightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         view.addSubview(heightValueLabel)
         heightValueLabel.translatesAutoresizingMaskIntoConstraints = false
-        heightValueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 330).isActive = true
+        heightValueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 230).isActive = true
         heightValueLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
         
         view.addSubview(heightSliderBar)
