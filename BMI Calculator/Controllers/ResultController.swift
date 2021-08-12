@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 결과화면 컨트롤러
 class ResultController: UIViewController {
     var data: Float!
     
